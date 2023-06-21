@@ -11,67 +11,50 @@ let block = document.querySelector('.jlehmann'),
 		mas[i].style.zIndex = z;
 	}
 
-function scrollBlock (event) {
-	event = event || window.event;
-    console.log(event)
-	delta = delta + Math.round(event.deltaY);
-	mas[j].style.top = `${-(delta*s)}px`;
-	//IF SCROLL DOWN
-	if ((delta*s) >= h) {
-		j = j + 1;
-		delta = 0;
-	}
-	//IF SCROLL UP
-	if ((-delta*s) > 0 && j !== 0) {
-		mas[j].style.top = null;
-		j = j - 1;
-		delta = h*10/(s*10)
-		mas[j].style.top = `${-(delta*s)}px`;
-	}
-	//IF SCROLL DOWN ON THE LAST BLOCK
-	if (j == mas.length - 1) {
-		mas[j].style.top = null;
-		delta = 0;
-	}
-	//IF SCROLL UP ON THE FIRST BLOCK
-	if (j == 0) {
-		if ((-delta*s) > 0) {
-			mas[j].style.top = null;
-			delta = 0;
-		}
-	}
-}
-
-block.addEventListener('wheel', scrollBlock)
-
-block.addEventListener('touchmove', function(event) {
-    event = event || window.event;
-    console.log(event);
-    delta = delta + Math.round(event.touches[0].clientY - event.touches[0].screenY);
-    mas[j].style.top = `${-(delta * s)}px`;
-    //IF SCROLL DOWN
-	if ((delta*s) >= h) {
-		j = j + 1;
-		delta = 0;
-	}
-	//IF SCROLL UP
-	if ((-delta*s) > 0 && j !== 0) {
-		mas[j].style.top = null;
-		j = j - 1;
-		delta = h*10/(s*10)
-		mas[j].style.top = `${-(delta*s)}px`;
-	}
-	//IF SCROLL DOWN ON THE LAST BLOCK
-	if (j == mas.length - 1) {
-		mas[j].style.top = null;
-		delta = 0;
-	}
-	//IF SCROLL UP ON THE FIRST BLOCK
-	if (j == 0) {
-		if ((-delta*s) > 0) {
-			mas[j].style.top = null;
-			delta = 0;
-		}
-	}
-
-});
+    function scrollBlock(event) {
+        event = event || window.event;
+        let deltaY;
+    
+        if (event.deltaY) {
+            deltaY = event.deltaY;
+        } else if (event.touches) {
+            deltaY = event.touches[0].clientY - event.touches[1].clientY;
+        } else {
+            deltaY = 0;
+        }
+    
+        delta = delta + Math.round(deltaY);
+        mas[j].style.top = `${-(delta * s)}px`;
+    
+        // IF SCROLL DOWN
+        if ((delta * s) >= h) {
+            j = j + 1;
+            delta = 0;
+        }
+    
+        // IF SCROLL UP
+        if ((-delta * s) > 0 && j !== 0) {
+            mas[j].style.top = null;
+            j = j - 1;
+            delta = (h * 10) / (s * 10);
+            mas[j].style.top = `${-(delta * s)}px`;
+        }
+    
+        // IF SCROLL DOWN ON THE LAST BLOCK
+        if (j == mas.length - 1) {
+            mas[j].style.top = null;
+            delta = 0;
+        }
+    
+        // IF SCROLL UP ON THE FIRST BLOCK
+        if (j == 0) {
+            if ((-delta * s) > 0) {
+                mas[j].style.top = null;
+                delta = 0;
+            }
+        }
+    }
+    
+    block.addEventListener("wheel", scrollBlock);
+    block.addEventListener("touchmove", scrollBlock);
+    
