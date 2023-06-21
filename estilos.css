@@ -1,0 +1,73 @@
+body {
+    display: grid;
+    height: 100%;
+    place-items: center;
+    text-align: center;
+    background: #f9f5f8; 
+  
+}
+
+.container2 {
+    width: 100%;
+    padding: 0 10%;
+    place-items: center;
+    text-align: center;
+}
+
+
+  /* Botones de redes */
+  .whatsapp-button {
+    position: fixed;
+    bottom: 80px;
+    right: 90px;
+    z-index: 9999;
+}
+
+.Insta-button {
+    position: fixed;
+    bottom: 140px;
+    right: 90px;
+    z-index: 9999;
+}
+
+.Tick-button {
+    position: fixed;
+    bottom: 280px;
+    right: 90px;
+    z-index: 9999;
+}
+
+.Face-button {
+    position: fixed;
+    bottom: 210px;
+    right: 90px;
+    z-index: 9999;
+}
+
+.Insta-button img {
+    width: 60px;
+    height: 60px;
+}
+
+.whatsapp-button img {
+    width: 60px;
+    height: 60px;
+}
+
+.Tick-button img {
+    width: 60px;
+    height: 60px;
+}
+
+.Face-button img {
+    width: 60px;
+    height: 60px;
+}
+
+.div-1{
+    background: #228c07;
+    width: 100%;
+    height: 100%;
+    max-height: 500px ;
+    z-index: 1;
+}
