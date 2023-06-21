@@ -1,4 +1,44 @@
-body {
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  .jlehmann {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+  }
+  .jlehmann h1 {
+    margin: auto;
+    text-align: center;
+    line-height: 100vh;
+  }
+  .layer {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+  }
+  .layer-1{
+    background-color:#9DC45A;
+  }
+  .layer-2 {
+    background: #f9f5f8;
+     background-image: url("imagenes/fondo1.png");
+  }
+  .layer-3 {
+    background: #f9f5f8;
+     background-image: url("imagenes/fondo2.png");
+  }
+  .layer-4 {
+    background-color: pink;
+  }
+  .layer-green {
+    background-color: green;
+  }
+/* body {
     display: grid;
     height: 100%;
     place-items: center;
@@ -6,16 +46,16 @@ body {
     background: #f9f5f8; 
   
 }
+#miCursor {
+    cursor: url('imagenes'), auto;
+  }
 
 .container2 {
     width: 100%;
-    padding: 0 10%;
+    padding: 0 0%;
     place-items: center;
     text-align: center;
 }
-
-
-  /* Botones de redes */
   .whatsapp-button {
     position: fixed;
     bottom: 80px;
@@ -65,9 +105,8 @@ body {
 }
 
 .div-1{
-    background: #228c07;
+    background: #9DC45A;
     width: 100%;
     height: 100%;
-    max-height: 500px ;
-    z-index: 1;
-}
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
+} */
