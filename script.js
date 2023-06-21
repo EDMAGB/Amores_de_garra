@@ -13,6 +13,7 @@ for (let i = 0; i < mas.length; i++) {
 
 function scrollBlock(event) {
     event.preventDefault();
+ 
     let deltaY;
 
     if (event.type === 'touchmove') {
@@ -20,7 +21,7 @@ function scrollBlock(event) {
     } else {
         deltaY = event.deltaY;
     }
-
+    console.log('e',deltaY)
     delta = delta + Math.round(deltaY);
     mas[j].style.top = `${-(delta * s)}px`;
 
@@ -53,3 +54,42 @@ block.addEventListener('wheel', scrollBlock);
 block.addEventListener('touchstart', scrollBlock);
 block.addEventListener('touchmove', scrollBlock);
 block.addEventListener('touchend', scrollBlock);
+
+const scrollButton = document.getElementById('scrollButton');
+
+
+scrollButton.addEventListener('click', () => {
+    deltaY = 1000000;
+    delta = delta + Math.round(deltaY);
+    console.log('delta',delta)
+    mas[j].style.top = `${-(delta * s)}px`;
+
+    if ((delta * s) >= h) {
+        j = j + 1;
+        delta = 0;
+    }
+
+    if ((-delta * s) > 0 && j !== 0) {
+        mas[j].style.top = null;
+        j = j - 1;
+        delta = (h * 10) / (s * 10);
+        mas[j].style.top = `${-(delta * s)}px`;
+    }
+
+    if (j == mas.length - 1) {
+        mas[j].style.top = null;
+        delta = 0;
+    }
+
+    if (j == 0) {
+        if ((-delta * s) > 0) {
+            mas[j].style.top = null;
+            delta = 0;
+        }
+    }
+    
+});
+
+
+
+
