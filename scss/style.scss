@@ -223,6 +223,33 @@ h6,
 .testimonial-carousel .owl-item img {
     width: 80px;
     height: 80px;
+    border-radius: 50px;
+}
+.act-carousel .owl-dots {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.act-carousel .owl-dot {
+    position: relative;
+    display: inline-block;
+    margin: 0 5px;
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    background: $primary;
+    transition: .5s;
+}
+
+.act-carousel .owl-dot.active {
+    width: 40px;
+    background: $secondary
+}
+
+.act-carousel .owl-item img {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
 }
 
 .contact-form .help-block ul {
